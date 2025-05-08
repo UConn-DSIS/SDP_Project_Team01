@@ -1,8 +1,5 @@
-## File versions:
-+ Over the course of the Spring 2025 semester, there were several versions of this project. The latest version is stored in "v8". 
-
-
- 
+## SDP Project Team01
+This is the repo for UConn SoC Project Team01: Benchmarking Large Language Models for Time Series Analysis
 ## Setup:
 1. Clone this repo
 1. Create a python virtual environment
