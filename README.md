@@ -45,6 +45,31 @@ This is the repo for UConn SoC Project Team01: Benchmarking Large Language Model
 1. Once completed, you are brought to a new pag1. Clicking the link “Click here to view results in Grafana” takes the user to a Grafana snapshot. In the top panel, a time series visualization graph plots the actual data the user uploaded against the high, median, and low forecasts. The table below shows the numerical values that correspond to the graph.
 1. On the Grafana tab, there are buttons that read “Move window left” and “Move window right”. Initially, Grafana displays the first window. Clicking the move right button updates the data in Grafana to display the next window. Moving left allows you to go return to previous windows. On Grafana, the original data will no longer be displaye1. If the range is far away enough, Grafana will have a “Zoom to data option”. If not, the webpage also displays the updated time bounds. The user can manually set them in the display.
 
+## User Guide (One Fits All):
+1. Run app.py. This file contains the Flask functionality.
+1. Navigate to http://121.0.0.1:5000/.
+1. Click the “Generate with One Fits All” tab.
+1. Upload your data file. At this time, only csv files are accepted.
+1. Choose the model you wish to run. Options are: PatchTST, DLinear and GPT4TS.
+	1. PatchTST is best for time series forecasting in domains like financial forecasting, energy demand prediction, or sensor data analysis, where there are long-range temporal dependencies.
+ 	1. DLinear is best when the time series data is less complex and linear trends or patterns are dominant. It’s a good choice when you don’t need the computational overhead of transformer-based models.
+  	1. GPT4TS is well-suited for time series forecasting where long-term, complex dependencies are present. It’s particularly effective for situations where you need the model to generate forecasts step-by-step (autoregressive) or handle multi-step forecasting.
+1. Fill in the rest of the parameters. Currently, they are all set to the default values, but are able to be changed.
+1. Specify the number of iterations or how many times the model will train the dataset.
+1. Specify the prediction length, which is the length of the time series the model will predict.
+1. Specify the learning rate, which determines the step size at each iteration while moving toward a minimum of the loss function.
+1. Specify the train epochs, or how many times the model will process the dataset.
+1. Specify patience, the number of epochs with no improvement before stopping the training early.
+1. Specify D Model, which defines the dimensionality of the model's internal representation (the size of the embedding layer).
+1. Specify N Heads, which sets the number of attention heads in the multi-head attention mechanism.
+1. E Layers specifies the number of encoder layers in the transformer model.
+1. GPT Layers sets the number of layers in the GPT (Generative Pretrained Transformer) component of the model.
+1. D FF defines the dimensionality of the feed-forward layers in the transformer model.
+1. Embedding specifies the method for encoding time-related features (e.g., timeF for time features).
+1. Use Cosine LR Scheduler indicates whether to use a cosine learning rate scheduler, which decays the learning rate gradually.
+1. TMax (for Cosine Scheduler) specifies the maximum number of iterations for the cosine learning rate scheduler.
+1. Press 'Start Training', which will begin the training given the parameters.
+1. At this time, we used a pre-trained model to skip the training process. The results should show the MAE and MSE results.
 
 ## General Notes:
 + This app only runs locally! We did not have time to deploy this on the clou1. To do this, consider a platform like Amazon Web Services or Heroku.
